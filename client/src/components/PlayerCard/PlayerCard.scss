@@ -1,0 +1,96 @@
+@import '../sassColors/colorThemes';
+$transitionTime:500ms;
+div.player-card {
+    background-color: $paletteColor5; //temp
+    margin: 0 10%;
+    width: 35%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 5px solid $paletteColor2;
+    border-radius: 25px;
+    overflow: hidden;
+    & #player-nickname {
+        margin-bottom: 0;
+        font-size: 150%;
+    }
+    & #wins {
+        font-size: 120%;
+        color: $paletteColor4;
+    }
+    & #loses {
+        font-size: 120%;
+        color: $paletteColor3;
+    }
+    & #header {
+        margin: 0 auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        grid-template-rows: auto;
+        border-bottom: 1px solid $paletteColor2;
+        //background-color: aqua; //temp
+        & div.player-icon {
+            grid-column: span 2;
+            //background-color: blue; //temp
+            padding: 25px;
+            & img {
+                float: left;
+                margin: 0 auto;
+                width: 100px;
+                border: 5px solid $paletteColor2;
+                border-radius: 15px;
+            }
+        }
+        & div.player-info {
+            padding-top: 20px;
+            grid-column: span 2;
+            text-align: justify;
+            //background-color: green; //temp
+            & #info {
+                margin: 0 auto;
+                font-size: 100%;
+                font-weight: bold;
+                color: $paletteColor2;
+            }
+        }
+    }
+    & #content {
+        //background-color: brown; //temp
+        margin: 0 auto;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        grid-template-rows: auto;
+        & #data {
+            //background-color: green; //temp
+            grid-column: span 2;
+        }
+        & #display {
+            padding: 5% 0;
+            grid-column: span 2;
+            //background-color: yellow; //temp
+            & .display-circular {
+                width: 100px;
+                border-radius: 50%;
+                font-size: 70%;
+                //box-shadow: -15px -5px 15px rgb(75, 75, 75), inset -23px -13px 23px rgb(75, 75, 75);
+                //text-shadow: -5px -5px 5px rgb(75, 75, 75);
+                //transition: all $transitionTime;
+                .CircularProgressbar-path {
+                    stroke: $circularPathColor;
+                    transition: stroke $transitionTime;
+                }
+                .CircularProgressbar-trail {
+                    stroke: rgba(84, 41, 22, 0.3);
+                    text-shadow: 2px 2px 2px;
+                }
+                .CircularProgressbar-text {
+                    font-size: 250%;
+                    fill: $circularTextColor;
+                    transition: fill $transitionTime;
+                }
+            }
+        }
+    }
+}
