@@ -1,50 +1,48 @@
-@import '../sassColors/colorThemes';
+@import "../sassColors/colorThemes";
 @font-face {
-    font-family: 'BigMacca';
-    src: url('../../fonts/bigmacca.ttf');
+  font-family: "BigMacca";
+  src: url("../../fonts/bigmacca.ttf");
 }
 
-$target: if(true,
-"&",
-"");
+$target: if(true, "&", "");
 .NavBar {
-    font-family: 'BigMacca', sans-serif;
-    overflow: hidden;
-    & nav {
-        & ul {
-            padding-top: 0px;
-            margin-top: 45px;
-            & li {
-                display: inline-flex;
-                list-style: none;
-                margin: 0px 5px;
-                & div {
-                    display: flex;
-                    flex-direction: column;
-                    & a {
-                        position: relative;
-                        border-top-left-radius: 15px;
-                        border-top-right-radius: 15px;
-                        padding: 15px 20px;
-                        text-decoration: none;
-                        color: $letterColor;
-                        font-size: 200%;
-                        transition: all 150ms;
-                        background-color: $nonSelectedNav;
-                        box-shadow: inset 0px -7px 5px $shadow;
-                        &:hover {
-                            background-color: $contentColor;
-                            box-shadow: -5px -5px 5px $shadow;
-                            transition: all 150ms;
-                        }
-                        &.active {
-                            background-color: $contentColor;
-                            box-shadow: -5px -5px 5px $shadow;
-                            transition: all 150ms;
-                        }
-                    }
-                }
+  font-family: "BigMacca", sans-serif;
+  overflow: hidden;
+  & nav {
+    & ul {
+      padding-top: 0px;
+      margin-top: 45px;
+      & li {
+        display: inline-flex;
+        list-style: none;
+        margin: 0px 5px;
+        & div {
+          display: flex;
+          flex-direction: column;
+          & a {
+            position: relative;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: $letterColor;
+            font-size: 200%;
+            transition: all 150ms;
+            background-color: $nonSelectedNav;
+            box-shadow: inset 0px -7px 5px $shadow;
+            &:hover {
+              background-color: $contentColor;
+              box-shadow: -5px -5px 5px $shadow;
+              transition: all 150ms;
             }
+            &.active {
+              background-color: $contentColor;
+              box-shadow: -5px -5px 5px $shadow;
+              transition: all 150ms;
+            }
+          }
         }
+      }
     }
+  }
 }
