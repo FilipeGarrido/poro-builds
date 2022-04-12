@@ -31,9 +31,6 @@ export default function PlayerSearch(){
     const [nameToSend , setNameToSend] = useState('')
 
     function SearchPlayer(){
-        fetch(`https://${region.value}/lol/summoner/v4/summoners/by-name/${nameToSend}?api_key=${process.env.API_KEY}`)
-            .then(resp => resp.json())
-            .then(dados => setNewData(dados))
 
     }
 

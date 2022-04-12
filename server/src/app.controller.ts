@@ -1,17 +1,14 @@
+/* eslint-disable prettier/prettier */
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('playerData')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  getHello(){
+    return this.appService.getHello()
   }
 
-  @Get('/summoner/:summonerName')
-  getSummonersName() {
-    return this.appService.getSummonersName();
-  }
 }
