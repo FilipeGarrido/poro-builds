@@ -1,8 +1,14 @@
-import React from "react";
 import { Link, useRouteMatch } from "react-router-dom";
 import "./NavBar.scss";
 
-function MenuLink({ label, to, activeOnlyWhenExact }) {
+export type Props = {
+  label: string;
+  to: string;
+  activeOnlyWhenExact: boolean;
+};
+
+export function MenuLink(props: Props) {
+  const { label, to, activeOnlyWhenExact } = props;
   let match = useRouteMatch({
     path: to,
     exact: activeOnlyWhenExact,
@@ -23,7 +29,7 @@ export function Navbar() {
       <nav>
         <ul>
           <li>
-            <MenuLink activeOnlyWhenExact={true} label={"Home Page"} to="/homePage" />
+            <MenuLink activeOnlyWhenExact={true} label={"Home"} to="/homePage" />
           </li>
           <li>
             {" "}
@@ -38,5 +44,3 @@ export function Navbar() {
     </div>
   );
 }
-
-export default Navbar;

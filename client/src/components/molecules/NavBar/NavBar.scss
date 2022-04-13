@@ -1,7 +1,7 @@
-@import "../sassColors/colorThemes";
+@import "../../../styles/colorThemes";
 @font-face {
   font-family: "BigMacca";
-  src: url("../../fonts/bigmacca.ttf");
+  src: url("../../../assets/fonts/bigmacca.ttf");
 }
 
 $target: if(true, "&", "");

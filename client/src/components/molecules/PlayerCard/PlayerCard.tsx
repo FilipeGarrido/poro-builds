@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./PlayerCard.scss";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import LolIcon from "../../assets/lolIcon.png";
+import LolIcon from "../../../assets/images/lolIcon.png";
 
-export default function PlayerCard({ playerName, playerLevel }) {
+type Props = {
+  name: string;
+  level: string;
+};
+
+export function PlayerCard(props: Props) {
+  const { name, level } = props;
   const wins = 70;
   const loses = 50;
   const [winRate, setWinRate] = useState((wins / (wins + loses)) * 100);
@@ -16,8 +22,8 @@ export default function PlayerCard({ playerName, playerLevel }) {
           <img src={LolIcon} alt="Player Icon" />
         </div>
         <div className="player-info">
-          <h1 id="player-nickname">{playerName}</h1>
-          <p id="info">Nivel {playerLevel} - Prata IV</p>
+          <h1 id="player-nickname">{name}</h1>
+          <p id="info">Nivel {level} - Prata IV</p>
         </div>
       </div>
 

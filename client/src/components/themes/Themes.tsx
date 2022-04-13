@@ -1,9 +1,9 @@
-import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ReactElement } from "react";
 
-export default function Themes(props) {
+export function Themes(props: { children: ReactElement }) {
   const theme = createTheme({
-    pallet: {
+    palette: {
       primary: {
         main: "#B5783F",
         contrastText: "#542916",
