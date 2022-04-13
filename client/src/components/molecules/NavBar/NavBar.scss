@@ -1,45 +1,39 @@
-@import '../sassColors/colorThemes';
+@import "../../../styles/colorThemes";
 @font-face {
-    font-family: 'BigMacca';
-    src: url('../../fonts/bigmacca.ttf');
+    font-family: "BigMacca";
+    src: url("../../../assets/fonts/bigmacca.ttf");
 }
 
-$target: if(true,
-"&",
-"");
 .NavBar {
-    font-family: 'BigMacca', sans-serif;
-    overflow: hidden;
+    font-family: "BigMacca", sans-serif;
+    grid-column: span 3;
+    //overflow: hidden;
     & nav {
+        grid-column: span 3;
         & ul {
-            padding-top: 0px;
-            margin-top: 45px;
+            display: flex;
+            justify-content: end;
+            margin-right: 2%;
             & li {
-                display: inline-flex;
                 list-style: none;
                 margin: 0px 5px;
                 & div {
-                    display: flex;
-                    flex-direction: column;
                     & a {
-                        position: relative;
-                        border-top-left-radius: 15px;
-                        border-top-right-radius: 15px;
-                        padding: 15px 20px;
+                        display: flex;
+                        border-radius: 5px;
+                        padding: 20px 20px;
                         text-decoration: none;
                         color: $letterColor;
                         font-size: 200%;
                         transition: all 150ms;
                         background-color: $nonSelectedNav;
-                        box-shadow: inset 0px -7px 5px $shadow;
                         &:hover {
                             background-color: $contentColor;
-                            box-shadow: -5px -5px 5px $shadow;
+                            box-shadow: 0px 0px 5px $shadow;
                             transition: all 150ms;
                         }
                         &.active {
                             background-color: $contentColor;
-                            box-shadow: -5px -5px 5px $shadow;
                             transition: all 150ms;
                         }
                     }

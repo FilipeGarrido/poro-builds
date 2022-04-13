@@ -49,4 +49,8 @@ export class SummonerService {
   getData(){
     return [...this.summoner]
   }
+
+  deleteAll(){
+    return this.summoner = [];
+  }
 }

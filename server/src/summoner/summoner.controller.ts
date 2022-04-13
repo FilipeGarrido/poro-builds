@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Param, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { SummonerService } from './summoner.service';
 
 @Controller()
@@ -17,5 +17,10 @@ export class SummonerController {
   @Get()
   getSummonerData(){
     return this.summonerService.getData()
+  }
+
+  @Delete('all')
+  cleanDB(){
+    return this.summonerService.deleteAll()
   }
 }
