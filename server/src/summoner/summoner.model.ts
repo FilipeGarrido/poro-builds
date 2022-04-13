@@ -2,28 +2,43 @@
 export class SummonersData{
 
     accountId:	    string
-    profileIconId:  number
+    profileIcon:    any
     revisionDate:   number
     name:	        string
     id:	            string
     puuid:	        string
     summonerLevel:  number
+    rankedQueue:    string 
+    rankedTier:     string
+    rankedTierRank: string
+    rankedWins:     number
+    rankedLosses:   number
 
     constructor(accId: string, 
-        profIconId: number, 
-        revDate: number, 
-        name: string, 
-        id: string, 
-        puuid: string, 
-        sumLevel: number)
+        profIcon:       any, 
+        revDate:        number, 
+        name:           string, 
+        id:             string, 
+        puuid:          string, 
+        sumLevel:       number,
+        rankedQueue:    string, 
+        rankedTier:     string,
+        rankedTierRank: string,
+        rankedWins:     number,
+        rankedLosses:   number)
         {
             this.accountId = accId
-            this.profileIconId = profIconId
+            this.profileIcon = profIcon
             this.revisionDate = revDate
             this.name = name
             this.id = id
             this.puuid = puuid
             this.summonerLevel = sumLevel
+            this.rankedQueue = rankedQueue
+            this.rankedTier = rankedTier
+            this.rankedTierRank = rankedTierRank
+            this.rankedWins = rankedWins
+            this.rankedLosses = rankedLosses
     }
 
 }
