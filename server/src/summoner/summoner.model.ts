@@ -2,7 +2,7 @@
 export class SummonersData{
 
     accountId:	    string
-    profileIcon:    any
+    profileIcon:    string
     revisionDate:   number
     name:	        string
     id:	            string
@@ -15,7 +15,7 @@ export class SummonersData{
     rankedLosses:   number
 
     constructor(accId: string, 
-        profIcon:       any, 
+        profIcon:       string, 
         revDate:        number, 
         name:           string, 
         id:             string, 

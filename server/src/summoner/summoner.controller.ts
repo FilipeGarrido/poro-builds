@@ -19,6 +19,11 @@ export class SummonerController {
     return this.summonerService.getData()
   }
 
+  @Get(':id')
+    getPlayerData(@Param('id') id:string){
+        return this.summonerService.getPlayerData(id);
+    }
+
   @Delete('all')
   cleanDB(){
     return this.summonerService.deleteAll()

@@ -14,11 +14,8 @@ export class SummonerService {
     const response = await axios.get(urlPlayerData);
     const { data } = response;
 
-    const urlIcon = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/profileicon/${data.profileIconId}.png`;
+    const profileIcon = `http://ddragon.leagueoflegends.com/cdn/12.7.1/img/profileicon/${data.profileIconId}.png`;
     
-    const iconResponse = await axios.get(urlIcon);
-    const iconImage = iconResponse.data
-
     const urlRanked = `https://${region}/lol/league/v4/entries/by-summoner/${data.id}?api_key=${process.env.API_KEY}`;
     const rankedResponse = await axios.get(urlRanked);
     const rankedData = rankedResponse.data
@@ -30,7 +27,7 @@ export class SummonerService {
 
     const newPlayer = new SummonersData(
       data.accountId,
-      iconImage,
+      profileIcon,
       data.revisionDate,
       data.name,
       data.id,
@@ -43,11 +40,16 @@ export class SummonerService {
       rankedLosses
     );
     this.summoner.push(newPlayer);
-    return this.summoner;
+    return newPlayer;
   }
 
   getData(){
     return [...this.summoner]
+  }
+
+  getPlayerData(id:string){
+    const summoner = this.summoner.find((summoner) => summoner.id === id);
+    return summoner
   }
 
   deleteAll(){

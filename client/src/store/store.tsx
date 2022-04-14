@@ -1,21 +1,18 @@
 import { useState, ReactChildren, createContext, ReactElement } from "react";
 
 type GlobalStateType = {
-  id: string;
-  accountId: string;
-  puuid: string;
-  name: string;
-  playerName: string;
-  playerLevel: number;
-  profileIconId: number;
-  revisionDate: number;
-  summonerLevel: number;
-  profileIcon: any;
-  rankedQueue: string;
-  rankedTier: string;
+  accountId:	    string;
+  profileIcon:    string;
+  revisionDate:   number;
+  name:	          string;
+  id:	            string;
+  puuid:	        string;
+  summonerLevel:  number;
+  rankedQueue:    string;
+  rankedTier:     string;
   rankedTierRank: string;
-  rankedWins: number;
-  rankedLosses: number;
+  rankedWins:     number;
+  rankedLosses:   number;
 };
 
 type GlobalContext = {
@@ -23,22 +20,30 @@ type GlobalContext = {
   dispatch: () => undefined;
 };
 
+type Provider = {
+  wins :  number;
+  losses : number;
+  rank : string;
+  tier : string;
+  playerName: string;
+  playerLevel: number;
+  profileIcon: string;
+  setNewData: GlobalContext;
+}
+
 const initialState: GlobalStateType = {
-  id: "",
-  accountId: "",
-  puuid: "",
-  name: "",
-  playerName: "",
-  playerLevel: 0,
-  profileIconId: 0,
-  revisionDate: 0,
-  summonerLevel: 0,
-  profileIcon: '',
-  rankedQueue: '',
-  rankedTier: '',
-  rankedTierRank: '',
-  rankedWins: 0,
-  rankedLosses: 0,
+  accountId : "",
+  profileIcon : "",
+  revisionDate : 0,
+  name : "",
+  id : "",
+  puuid : "",
+  summonerLevel : 0,
+  rankedQueue : "",
+  rankedTier : "",
+  rankedTierRank : "",
+  rankedWins : 0,
+  rankedLosses : 0
 };
 
 export const PlayerDataContext = createContext(initialState);
@@ -52,10 +57,15 @@ export function Store(props: { children: ReactElement }) {
   }
 
   return (
-    <PlayerDataContext.Provider
+    <PlayerDataContext.Provider<Provider>
       value={{
+        wins : data.rankedWins,
+        losses : data.rankedLosses,
+        rank : data.rankedTier,
+        tier : data.rankedTierRank,
         playerName: data.name,
         playerLevel: data.summonerLevel,
+        profileIcon: data.profileIcon,
         setNewData: (nd) => updateData(nd),
       }}
     >

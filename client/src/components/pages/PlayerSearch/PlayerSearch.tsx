@@ -30,7 +30,7 @@ const regions: Regions[] = [
 
 export function PlayerSearch() {
 
-  const { setNewData } = useContext(PlayerDataContext);
+  const { setNewData , profileIconId } = useContext(PlayerDataContext);
 
   const [region, setRegion] = useState(regions[0]);
   const [nameInput, setNameInput] = useState("");
@@ -43,14 +43,35 @@ export function PlayerSearch() {
     try {
       const recievingData =  await axios.get(url);
       const data = recievingData.data;
+      
+      let exist = false;
+      let id = '';
 
+      //Verificar se existe alguem ja cadastrado
       if(data.length != 0){
-        //NÃO SEI OQ FAZER AQUI
-        return console.log(data)
+        //Verificar se o nome ja esta armazenado
+        data.forEach( (element: any) => {
+          if(element.name == nameInput){
+            exist = true
+            id = element.id
+          }
+        })
+
+        if(!exist){
+          const newRecievingData = await axios.post(`${url}/${region.value}/${nameToSend}`);
+          const newData = newRecievingData.data
+          console.log(newData)
+          return setNewData(newData)
+        }else{
+          const summoner = await axios.get(`${url}/${id}`)
+          console.log(summoner.data)
+          return setNewData(summoner.data)
+        }
       }
       else{
         const newData = await axios.post(`${url}/${region.value}/${nameToSend}`);
-        return setNewData(newData.data)
+        console.log(newData.data)
+        return setNewData (newData.data)
       }
     } catch (e) {
       console.log(e);
@@ -97,7 +118,7 @@ export function PlayerSearch() {
             </Themes>
           </div>
           <div id="button-container">
-            <Link to={"/"}>
+            <Link to={"/homePage"}>
               <Button id="button" variant="contained" endIcon={<SearchIcon />} onClick={() => onClick()}>
                 Buscar
               </Button>
